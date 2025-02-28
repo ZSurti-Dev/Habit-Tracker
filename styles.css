@@ -1,0 +1,213 @@
+body {
+    font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+  }
+  
+  .container {
+    background-color: #fff;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .container:hover {
+    transform: translateY(-5px);
+  }
+  
+  h1 {
+    text-align: center;
+    margin: 0;
+    padding: 25px 0;
+    background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+    color: white;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    font-size: 28px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  
+  .input-container {
+    display: flex;
+    padding: 20px;
+    background-color: #f9fafb;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  
+  #habit-input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    outline: none;
+  }
+  
+  #habit-input:focus {
+    border-color: #a5b4fc;
+    box-shadow: 0 0 0 3px rgba(165, 180, 252, 0.3);
+  }
+  
+  #add-habit {
+    margin-left: 10px;
+    background-color: #6366F1;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    outline: none;
+  }
+  
+  #add-habit:hover {
+    background-color: #4F46E5;
+    transform: translateY(-2px);
+  }
+  
+  #add-habit:active {
+    transform: translateY(0);
+  }
+  
+  #habit-list {
+    padding: 0;
+    max-height: 60vh;
+    overflow-y: auto;
+  }
+  
+  .habit {
+    display: flex;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid #f1f5f9;
+    transition: background-color 0.2s ease;
+  }
+  
+  .habit:hover {
+    background-color: #f8fafc;
+  }
+  
+  .habit:last-child {
+    border-bottom: none;
+  }
+  
+  .habit-name {
+    flex: 1;
+    font-size: 16px;
+    font-weight: 500;
+    padding-right: 10px;
+  }
+  
+  .habit-progress {
+    background-color: #f1f5f9;
+    color: #64748b;
+    padding: 4px 8px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    min-width: 100px;
+    text-align: center;
+  }
+  
+  .habit-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #cbd5e1;
+    border-radius: 6px;
+    margin-left: 15px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+  }
+  
+  .habit-checkbox:checked {
+    background-color: #6366F1;
+    border-color: #6366F1;
+  }
+  
+  .habit-checkbox:checked::after {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 3px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  
+  /* Animation for adding new habits */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .habit {
+    animation: fadeIn 0.3s ease forwards;
+  }
+  
+  /* Add a loading animation */
+  @keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+  }
+  
+  .loading {
+    text-align: center;
+    padding: 20px;
+    color: #64748b;
+    animation: pulse 1.5s infinite;
+  }
+  
+  /* Custom scrollbar for habit list */
+  #habit-list::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  #habit-list::-webkit-scrollbar-track {
+    background: #f1f5f9;
+  }
+  
+  #habit-list::-webkit-scrollbar-thumb {
+    background-color: #cbd5e1;
+    border-radius: 4px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    .container {
+      width: 95%;
+      margin: 15px;
+    }
+    
+    .input-container {
+      flex-direction: column;
+    }
+    
+    #add-habit {
+      margin-left: 0;
+      margin-top: 10px;
+      width: 100%;
+    }
+  }
+  
+  /* Show streaks with color coding */
+  .streak-1 { color: #60a5fa; }
+  .streak-3 { color: #34d399; }
+  .streak-5 { color: #f59e0b; }
+  .streak-7 { color: #f43f5e; }
